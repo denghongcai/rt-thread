@@ -102,6 +102,27 @@ void SVC_Handler(void)
 {
 }
 
+void EXTI0_IRQHandler(void)
+{
+    extern void enc28j60_isr(void);
+	
+	if(EXTI_GetITStatus(EXTI_Line0) != RESET)
+	{		
+		//rt_kprintf("\n\r TEST OK !  \n\r");
+
+		/* enter interrupt */
+		rt_interrupt_enter();
+
+		/* Clear the Key Button EXTI line pending bit */
+		EXTI_ClearITPendingBit(EXTI_Line0);
+
+		enc28j60_isr();
+
+		/* leave interrupt */ 
+		rt_interrupt_leave();
+	}
+}
+
 /**
   * @}
   */

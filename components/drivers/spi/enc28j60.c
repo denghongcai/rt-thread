@@ -1,6 +1,6 @@
 #include "enc28j60.h"
 
-#define NET_TRACE
+//#define NET_TRACE
 #define ETH_RX_DUMP
 #define ETH_TX_DUMP
 

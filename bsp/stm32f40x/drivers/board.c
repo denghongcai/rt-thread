@@ -19,6 +19,7 @@
 #include "board.h"
 #include "usart.h"
 #include "gpio.h"
+#include "stm32f4_spi.h"
 
 /**
  * @addtogroup STM32
@@ -95,6 +96,7 @@ void rt_hw_board_init()
 
     stm32_hw_usart_init();
     stm32_hw_pin_init();
+	stm32_hw_spi2_init();
     
 #ifdef RT_USING_CONSOLE
     rt_console_set_device(CONSOLE_DEVICE);

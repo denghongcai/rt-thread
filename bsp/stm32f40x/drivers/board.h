@@ -17,6 +17,7 @@
 #define __BOARD_H__
 
 #include <stm32f4xx.h>
+#include "drivers/pin.h"
 
 /* board configuration */
 // <o> SDCard Driver <1=>SDIO sdcard <0=>SPI MMC card

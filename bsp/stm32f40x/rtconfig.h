@@ -107,7 +107,7 @@
 // #define RT_USING_DFS_ROMFS
 
 /* SECTION: lwip, a lighwight TCP/IP protocol stack */
-/* #define RT_USING_LWIP */
+#define RT_USING_LWIP */
 /* LwIP uses RT-Thread Memory Management */
 #define RT_LWIP_USING_RT_MEM
 /* Enable ICMP protocol*/
@@ -119,19 +119,21 @@
 /* Enable DNS */
 #define RT_LWIP_DNS
 
+//#define RT_LWIP_DHCP
+
 /* the number of simulatenously active TCP connections*/
 #define RT_LWIP_TCP_PCB_NUM	5
 
 /* ip address of target*/
 #define RT_LWIP_IPADDR0	192
 #define RT_LWIP_IPADDR1	168
-#define RT_LWIP_IPADDR2	1
-#define RT_LWIP_IPADDR3	201
+#define RT_LWIP_IPADDR2	10
+#define RT_LWIP_IPADDR3	2
 
 /* gateway address of target*/
 #define RT_LWIP_GWADDR0	192
 #define RT_LWIP_GWADDR1	168
-#define RT_LWIP_GWADDR2	1
+#define RT_LWIP_GWADDR2	10
 #define RT_LWIP_GWADDR3	1
 
 /* mask address of target*/
@@ -149,6 +151,16 @@
 #define RT_LWIP_ETHTHREAD_PRIORITY		15
 #define RT_LWIP_ETHTHREAD_MBOX_SIZE		4
 #define RT_LWIP_ETHTHREAD_STACKSIZE		512
+
+#define CHECKSUM_CHECK_TCP              0
+#define CHECKSUM_CHECK_IP               0
+#define CHECKSUM_CHECK_UDP              0
+
+#define CHECKSUM_GEN_TCP                1
+#define CHECKSUM_GEN_IP                 1
+#define CHECKSUM_GEN_UDP                1
+#define CHECKSUM_GEN_ICMP               1
+#define IP_DEFAULT_TTL          0x40
 
 /* TCP sender buffer space */
 #define RT_LWIP_TCP_SND_BUF	8192
