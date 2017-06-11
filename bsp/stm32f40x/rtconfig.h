@@ -118,6 +118,11 @@
 #define RT_LWIP_TCP
 /* Enable DNS */
 #define RT_LWIP_DNS
+#define SO_REUSE 1
+
+#define LWIP_INCLUDED_POLARSSL_SHA1 1
+#define RT_LWIP_PPP
+#define RT_LWIP_PPPOE
 
 //#define RT_LWIP_DHCP
 

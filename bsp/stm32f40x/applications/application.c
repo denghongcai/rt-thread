@@ -28,6 +28,8 @@
 #include <gdb_stub.h>
 #endif
 
+extern void wslay_server();
+
 static void Exit0_Init()
 {
   	EXTI_InitTypeDef EXTI_InitStructure;
@@ -80,6 +82,8 @@ void rt_init_thread_entry(void* parameter)
         /* init lwip system */
         lwip_sys_init();
         rt_kprintf("TCP/IP initialized!\n");
+        
+        wslay_server();
         //netio_init();
     }
 #endif
@@ -114,7 +118,7 @@ int rt_application_init()
 
     tid = rt_thread_create("init",
         rt_init_thread_entry, RT_NULL,
-        2048, RT_THREAD_PRIORITY_MAX/3, 20);
+        8192, RT_THREAD_PRIORITY_MAX/3, 20);
 
     if (tid != RT_NULL)
         rt_thread_startup(tid);

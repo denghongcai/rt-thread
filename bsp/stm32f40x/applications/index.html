@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>wslay server</title>
+  </head>
+  <body>
+  	<h1>hello world</h1>
+  	<h3 id="content"></h3>
+  	<script type="text/javascript">
+  		var socket = new WebSocket("ws://" + location.host);
+  		socket.onopen = function (event) {
+  			socket.send("Here's some text that the server is urgently awaiting!"); 
+		};
+		socket.onmessage = function (event) {
+  			content.innerText = event.data;
+		}
+		setInterval(function () {
+			socket.send("Date: " + new Date().toString());
+		}, 1000);
+  	</script>
+  </body>
+</html>
